@@ -22,4 +22,6 @@
  * warning=sarı, normal=arkaplan yok)
  * - `getPostDetails` fonksiyonu tetiklenerek ilgili içeriğin çıktısı gösterilmeli.
  */
-
+include_once "functions.php"; //functions.php'yi cektim.
+echo "<div style = 'background-color:red' >"; // arkaplan rengini($type="red") kendim verdim
+getPostDetails(1,"Lorem"); // id ve baslik degerlerini kendim verdim
