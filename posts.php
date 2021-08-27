@@ -19,4 +19,17 @@
  * çalıştırmalısınız. Bu fonksiyondan aldığınız diziyi kullanarak `post.php` betik
  * dosyasını döngü içinde dahil etmeli ve her yazı için detayları göstermelisiniz.
  */
-
+include_once "functions.php"; // functions.php'yi cektim.
+$randomnum = getRandomPostCount(1,100); // random numaranın min = 1 , max = 100 olarak belirledim.
+$posts = getLatestPosts($randomnum); // cikan random tamsayiyi degiskene attim.
+foreach($posts as $id => $post){ // type degerine bagli olarak renk degisimi
+    if($post['type'] == "urgent") {  //kirmizi renk icin
+        echo "<div style = 'background-color:red' >";
+    }elseif($post['type'] == "warning"){ // sari renk icin
+        echo "<div style = 'background-color:yellow' >";
+    }else{ //normal icin
+        echo "<div>";
+    }
+    getPostDetails($id, $post['title']); // post detaylari icin
+         echo "</div>";
+}
