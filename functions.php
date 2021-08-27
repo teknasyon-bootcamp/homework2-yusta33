@@ -16,6 +16,13 @@
  * bekliyoruz. Bununla ilgili detaylı bilgi diğer betiklerde yer alıyor.
  */
 
+$file = basename(__FILE__);
+$server = basename($_SERVER['PHP_SELF']);
+
+if($server == $file) { // functions.php dosyasina direkt erisimi engellemek icin
+    die ("Bu dosyaya direkt erişilemez"); 
+}else {} // Eger iki dosyanin isimleri esit degil ise asagidaki kodlari calistirir
+
 function getLatestPosts($count = 5)
 {
     $posts = [];
@@ -48,4 +55,6 @@ EOT;
 }
 
 // Aşağıya fonksiyonu tanımlayabilirsiniz.
-
+function getRandomPostCount($min,$max){ //random sayi olusturmak icin olusturdugum fonksiyon
+    return rand($min,$max);
+}
